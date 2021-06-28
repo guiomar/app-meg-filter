@@ -11,8 +11,7 @@
 # Author: Guiomar Niso
 
 # make output directory
-mkdir -p out_dir1
-mkdir -p out_dir2
+mkdir -p out_dir
 
 #python main.py
 singularity exec docker://brainlife/mne:0.23dev python3 main.py
