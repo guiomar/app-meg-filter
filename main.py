@@ -31,7 +31,7 @@ h_freq = config['h_freq'] if config['h_freq'] else None
 # If both l_freq and l_freq are None -> warning
 
 # CTF
-fname = config['ctf']
+fname = config['ds']
 raw = mne.io.read_raw_ctf(fname)
 
 # FID
