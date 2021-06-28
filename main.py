@@ -26,6 +26,8 @@ with open(__location__+'/config.json') as config_json:
 l_freq = config['l_freq'] if config['l_freq'] else None 
 h_freq = config['h_freq'] if config['h_freq'] else None
 
+#freqs = config['freqs']
+
 # If both l_freq and l_freq are None -> warning
 
 # CTF
@@ -52,6 +54,23 @@ raw.filter(
     pad='reflect_limited', 
     verbose=None)
 
+'''
+ raw.notch_filter(
+     freqs, 
+     picks=None, 
+     filter_length='auto', 
+     notch_widths=None, 
+     trans_bandwidth=1.0, 
+     n_jobs=1, method='fir', 
+     iir_params=None, 
+     mt_bandwidth=None, 
+     p_value=0.05, 
+     phase='zero', 
+     fir_window='hamming', 
+     fir_design='firwin', 
+     pad='reflect_limited', 
+     verbose=None)
+'''
 
 # save the first seconds of MEG data in FIF file 
 raw.save(os.path.join('out_dir','meg.fif'))
