@@ -23,13 +23,18 @@ with open(__location__+'/config.json') as config_json:
     config = json.load(config_json)
 
 
-fname = config['ctf']
-l_freq = config['l_freq'] # in seconds
-h_freq = config['h_freq']
+l_freq = config['l_freq'] if config['l_freq'] else None 
+h_freq = config['h_freq'] if config['h_freq'] else None
 
+# If both l_freq and l_freq are None -> warning
 
 # CTF
+fname = config['ctf']
 raw = mne.io.read_raw_ctf(fname)
+
+# FID
+#fname = config['fif']
+#raw = mne.io.read_raw_fif(fname)
 
 raw.filter(
     l_freq, h_freq, 
